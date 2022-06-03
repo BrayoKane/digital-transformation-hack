@@ -2,6 +2,7 @@ import { Component, OnInit, ElementRef } from '@angular/core';
 import { ROUTES } from '../sidebar/sidebar.component';
 import { Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
 import { Router } from '@angular/router';
+import {SharedService} from '../../shared/services/shared.service';
 
 @Component({
   selector: 'app-navbar',
@@ -12,11 +13,14 @@ export class NavbarComponent implements OnInit {
   public focus;
   public listTitles: any[];
   public location: Location;
-  constructor(location: Location,  private element: ElementRef, private router: Router) {
+  userProfileDetails;
+  constructor(location: Location,  private element: ElementRef, private router: Router,
+              private _sharedService: SharedService) {
     this.location = location;
   }
 
   ngOnInit() {
+    this.getUserProfileDetails();
     this.listTitles = ROUTES.filter(listTitle => listTitle);
   }
   getTitle(){
@@ -31,6 +35,13 @@ export class NavbarComponent implements OnInit {
         }
     }
     return 'Dashboard';
+  }
+
+  getUserProfileDetails() {
+    this._sharedService.getUserProfileDetails().subscribe(res => {
+      this.userProfileDetails = res['details'];
+      console.log(res);
+    });
   }
 
 }

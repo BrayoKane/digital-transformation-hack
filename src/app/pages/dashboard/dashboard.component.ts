@@ -8,6 +8,7 @@ import {
   chartExample1,
   chartExample2
 } from "../../variables/charts";
+import {SharedService} from '../../shared/services/shared.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -16,13 +17,19 @@ import {
 })
 export class DashboardComponent implements OnInit {
 
+  userProfileDetails;
+
   public datasets: any;
   public data: any;
   public salesChart;
   public clicked: boolean = true;
   public clicked1: boolean = false;
 
+  constructor(private _sharedService: SharedService) {
+  }
+
   ngOnInit() {
+    this.getUserProfileDetails();
 
     this.datasets = [
       [0, 20, 10, 30, 15, 40, 20, 60, 60],
@@ -57,4 +64,10 @@ export class DashboardComponent implements OnInit {
     this.salesChart.update();
   }
 
+  getUserProfileDetails() {
+    this._sharedService.getUserProfileDetails().subscribe(res => {
+      this.userProfileDetails = res['details'];
+      console.log(res);
+    });
+  }
 }

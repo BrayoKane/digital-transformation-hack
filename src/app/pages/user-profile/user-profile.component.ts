@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {SharedService} from '../../shared/services/shared.service';
 
 @Component({
   selector: 'app-user-profile',
@@ -7,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserProfileComponent implements OnInit {
 
-  constructor() { }
+  userProfileDetails;
+
+  constructor(private _sharedService: SharedService) { }
 
   ngOnInit() {
+    this.getUserProfileDetails();
+  }
+
+  getUserProfileDetails() {
+    this._sharedService.getUserProfileDetails().subscribe(res => {
+      this.userProfileDetails = res['details'];
+      console.log(res);
+    });
   }
 
 }
