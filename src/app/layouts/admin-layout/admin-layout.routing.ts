@@ -7,6 +7,7 @@ import { UserProfileComponent } from '../../pages/user-profile/user-profile.comp
 import { TablesComponent } from '../../pages/tables/tables.component';
 import { ItemsComponent } from 'src/app/pages/items/items.component';
 import { SkillsComponent } from 'src/app/pages/skills/skills.component';
+import {AccountComponent} from '../../pages/account/account.component';
 
 export const AdminLayoutRoutes: Routes = [
     { path: 'dashboard',      component: DashboardComponent },
@@ -18,6 +19,7 @@ export const AdminLayoutRoutes: Routes = [
     {
       path: 'skills',
       component : SkillsComponent
-    }
+    },
 
+  { path: 'account', component: AccountComponent },
 ];
