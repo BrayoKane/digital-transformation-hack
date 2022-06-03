@@ -15,6 +15,7 @@ import { ComponentsModule } from './components/components.module';
 import { ForgotComponent } from './pages/forgot/forgot.component';
 import { SkillsComponent } from './pages/skills/skills.component';
 import { ItemsComponent } from './pages/items/items.component';
+import { AccountComponent } from './pages/account/account.component';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { ItemsComponent } from './pages/items/items.component';
     AuthLayoutComponent,
     ForgotComponent,
     SkillsComponent,
-    ItemsComponent
+    ItemsComponent,
+    AccountComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
