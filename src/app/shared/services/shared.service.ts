@@ -6,7 +6,7 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 })
 export class SharedService {
 
-  BASE_URI = 'http://192.168.83.128:8000';
+  BASE_URI = 'http://192.168.82.47:8000';
 
   private _registerUrl = this.BASE_URI + '/api/v1/registration';
   private _logUrl = this.BASE_URI + '/api/v1/login';

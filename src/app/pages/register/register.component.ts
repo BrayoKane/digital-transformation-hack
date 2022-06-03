@@ -56,6 +56,7 @@ export class RegisterComponent implements OnInit {
       this._sweetAlertService.showSuccessAlert(res['details']);
       this._router.navigate(['/login']);
     }, err => {
+      window.alert(err.error.details);
       this._sweetAlertService.showErrorAlert(err.error.details);
     });
   }

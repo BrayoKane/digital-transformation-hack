@@ -1,5 +1,5 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {Component, OnInit, OnDestroy} from '@angular/core';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {SharedService} from '../../shared/services/shared.service';
 import {Router} from '@angular/router';
 
@@ -9,24 +9,25 @@ import {Router} from '@angular/router';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit, OnDestroy {
-  loginForm : FormGroup;
+  loginForm: FormGroup;
 
 
   constructor(
-    private _sharedService : SharedService,
-    private _fb : FormBuilder,
-    private _router : Router
-  ) {}
+    private _sharedService: SharedService,
+    private _fb: FormBuilder,
+    private _router: Router
+  ) {
+  }
 
   ngOnInit() {
     this.loginForm = this._fb.group({
       username: ['', Validators.required],
-      password : ['', Validators.required]
-    })
+      password: ['', Validators.required]
+    });
   }
 
-  login(){
-  console.log('login Button Click');
+  login() {
+    console.log('login Button Click');
 
     this._sharedService.login(this.loginForm.value).subscribe(res => {
       console.log('Login Successful', res);
@@ -36,15 +37,12 @@ export class LoginComponent implements OnInit, OnDestroy {
       localStorage.setItem('access_token', res['details']['access_token']);
       localStorage.setItem('expiry_time', res['details']['expires_in']);
 
-
-
       this._router.navigate(['/profile']);
-
-
-
-
-    })
+    }, err => {
+      window.alert(err.error.details);
+    });
   }
+
   ngOnDestroy() {
   }
 
