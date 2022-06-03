@@ -5,6 +5,8 @@ import { IconsComponent } from '../../pages/icons/icons.component';
 import { MapsComponent } from '../../pages/maps/maps.component';
 import { UserProfileComponent } from '../../pages/user-profile/user-profile.component';
 import { TablesComponent } from '../../pages/tables/tables.component';
+import { ItemsComponent } from 'src/app/pages/items/items.component';
+import { SkillsComponent } from 'src/app/pages/skills/skills.component';
 import {AccountComponent} from '../../pages/account/account.component';
 
 export const AdminLayoutRoutes: Routes = [
@@ -13,5 +15,11 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'tables',         component: TablesComponent },
     { path: 'icons',          component: IconsComponent },
     { path: 'maps',           component: MapsComponent },
+    { path: 'items',           component: ItemsComponent },
+    {
+      path: 'skills',
+      component : SkillsComponent
+    },
+
   { path: 'account', component: AccountComponent },
 ];
