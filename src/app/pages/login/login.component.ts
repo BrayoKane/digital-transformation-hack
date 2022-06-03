@@ -37,7 +37,10 @@ export class LoginComponent implements OnInit, OnDestroy {
       localStorage.setItem('expiry_time', res['details']['expires_in']);
 
 
+
       this._router.navigate(['/profile']);
+
+
 
 
     })
