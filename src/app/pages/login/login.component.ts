@@ -31,13 +31,16 @@ export class LoginComponent implements OnInit, OnDestroy {
     this._sharedService.login(this.loginForm.value).subscribe(res => {
       console.log('Login Successful', res);
       localStorage.setItem('loginStatus', '1');
-      localStorage.setItem('jwt', res['details']['jwt']);
+      localStorage.setItem('jwt', res['details']['jwt_token']);
       localStorage.setItem('refresh_token', res['details']['refresh_token']);
       localStorage.setItem('access_token', res['details']['access_token']);
       localStorage.setItem('expiry_time', res['details']['expires_in']);
 
 
+
       this._router.navigate(['/profile']);
+
+
 
 
     })

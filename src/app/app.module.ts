@@ -13,6 +13,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule } from './app.routing';
 import { ComponentsModule } from './components/components.module';
 import { ForgotComponent } from './pages/forgot/forgot.component';
+import { SkillsComponent } from './pages/skills/skills.component';
+import { ItemsComponent } from './pages/items/items.component';
 
 
 @NgModule({
@@ -29,7 +31,9 @@ import { ForgotComponent } from './pages/forgot/forgot.component';
     AppComponent,
     AdminLayoutComponent,
     AuthLayoutComponent,
-    ForgotComponent
+    ForgotComponent,
+    SkillsComponent,
+    ItemsComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
